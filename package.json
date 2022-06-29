@@ -1,0 +1,17 @@
+{
+  "name": "frontend-video-js",
+  "version": "1.0.0",
+  "license": "MIT",
+  "source": "src/index.html",
+  "scripts": {
+    "start": "parcel",
+    "build": "parcel build"
+  },
+  "dependencies": {
+    "@telnyx/video": "^0.2.0-alpha.22"
+  },
+  "devDependencies": {
+    "parcel": "^2.6.2",
+    "process": "^0.11.10"
+  }
+}
