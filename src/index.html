@@ -14,23 +14,45 @@
 <body>
   <main class="container mx-auto px-4 p-4">
     <section class="grid grid-cols-2 gap-4 shadow-md bg-white rounded-md p-16">
-      <div>
+      <div class="w-3/5">
+
         <!-- Room ID -->
-        <div class="mb-3 xl:w-96">
+        <div class="mb-3 w-full">
           <label for="room-id" class="form-label inline-block mb-2 text-gray-700">Room ID</label>
-          <input type="text"
+          <input type="text" name="room-id"
             class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
             id="room-id" />
+          <button id="btn-generate-token" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 mt-4 rounded">
+            Generate Client Token
+          </button>
         </div>
 
+        <!-- Client Token -->
+        <div class="mb-3 w-full">
+          <label for="client-token" class="form-label inline-block mb-2 text-gray-700">Client Token</label>
+          <textarea name="client-token"
+            class="form-control block w-full px-3 py-1.5 text-xs font-normal text-gray-700 bg-slate-50 bg-clip-padding border border-solid border-gray-300 h-40 rounded transition ease-in-out m-0"
+            disabled id="client-token" />
+        </div>
 
-        <button id="btn-connect" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
-          Connect
-        </button>
+        <!-- Buttons -->
+        <div class="grid grid-cols-3 gap-4">
+          <button id="btn-connect" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
+            Connect
+          </button>
+          <button id="btn-disconnect" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
+            Disconnect
+          </button>
+          <button id="btn-send-media" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
+            Send media
+          </button>
+        </div>
       </div>
 
       <div>
-        <pre class="inline-block w-full rounded-md text-[10px] h-80 overflow-scroll bottom-0 relative"><code class="language-json" /></pre>
+        <!-- CODE BOX -->
+        <pre
+          class="inline-block w-full rounded-md text-[10px] h-80 overflow-scroll bottom-0 relative"><code class="language-json" /></pre>
       </div>
 
     </section>
