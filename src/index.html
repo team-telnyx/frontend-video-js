@@ -1,11 +1,40 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8"/>
-    <title>My First Parcel App</title>
-    <link href="./index.css" rel="stylesheet">
-    <script type="module" src="index.js"></script>
-  </head>
-  <body>
-  </body>
+
+<head>
+  <meta charset="utf-8" />
+  <title>Telnyx - Video Rooms</title>
+  <script type="module" src="./prism/prism.js"></script>
+  <link href="./prism/prism.css" rel="stylesheet">
+
+  <link href="./index.css" rel="stylesheet">
+  <script type="module" src="index.js"></script>
+</head>
+
+<body>
+  <main class="container mx-auto px-4 p-4">
+    <section class="grid grid-cols-2 gap-4 shadow-md bg-white rounded-md p-16">
+      <div>
+        <!-- Room ID -->
+        <div class="mb-3 xl:w-96">
+          <label for="room-id" class="form-label inline-block mb-2 text-gray-700">Room ID</label>
+          <input type="text"
+            class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+            id="room-id" />
+        </div>
+
+
+        <button id="btn-connect" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
+          Connect
+        </button>
+      </div>
+
+      <div>
+        <pre class="inline-block w-full rounded-md text-[10px] h-80 overflow-scroll bottom-0 relative"><code class="language-json" /></pre>
+      </div>
+
+    </section>
+  </main>
+</body>
+
 </html>
