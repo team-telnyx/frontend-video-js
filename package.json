@@ -8,11 +8,12 @@
     "build": "parcel build"
   },
   "dependencies": {
-    "@telnyx/video": "^0.2.0-alpha.22"
+    "@telnyx/video": "^0.2.0-alpha.23"
   },
   "devDependencies": {
     "parcel": "^2.6.2",
     "postcss": "^8.4.14",
+    "prettier": "^2.7.1",
     "process": "^0.11.10",
     "tailwindcss": "^3.1.4"
   }
