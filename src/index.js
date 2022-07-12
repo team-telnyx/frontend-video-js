@@ -38,7 +38,6 @@ const VideoRoom = {
 
 window.VideoRoom = VideoRoom;
 
-
 // DOM interactions
 
 function appendUIResponse(response) {
@@ -59,7 +58,9 @@ const roomId = document.querySelector('input[name=room-id]').value;
 
 // Buttons
 btnGenerateToken.addEventListener('click', function () {
-  VideoRoom.generateToken().then(({ token }) => { clientTokenField.value = token; });
+  VideoRoom.generateToken().then(({ token }) => {
+    clientTokenField.value = token;
+  });
 });
 
 btnConnect.addEventListener('click', async function () {

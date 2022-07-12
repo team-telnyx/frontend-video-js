@@ -786,10 +786,10 @@
   dependencies:
     tslib "^2.4.0"
 
-"@telnyx/video@^0.2.0-alpha.22":
-  version "0.2.0-alpha.22"
-  resolved "https://registry.yarnpkg.com/@telnyx/video/-/video-0.2.0-alpha.22.tgz#3cee17530534972fe3656de2e66bda3376a73cd1"
-  integrity sha512-bYHAgOSDp1WigwdpNZ8NeokF1LJQUx2Lc1DWRb+K4S5oSa7kNhLzkPSd/dqWoRCWLh8EtpfcmBKn3WMz4yMY1g==
+"@telnyx/video@^0.2.0-alpha.23":
+  version "0.2.0-alpha.23"
+  resolved "https://registry.yarnpkg.com/@telnyx/video/-/video-0.2.0-alpha.23.tgz#f5daa67963532a0c14f017272e65f300d5bf77d3"
+  integrity sha512-vcpuBzYorNt/LaKfR12Md4v0fhfYJJQ1+jvCX08lx+8RZl+AN3BYC7SpJ4Aq7+pHhRg5HJ3igpZetyEL7/7sPg==
   dependencies:
     "@types/uuid" "^8.3.0"
     events "^3.3.0"
@@ -1607,6 +1607,11 @@ posthtml@^0.16.4, posthtml@^0.16.5:
   dependencies:
     posthtml-parser "^0.11.0"
     posthtml-render "^3.0.0"
+
+prettier@^2.7.1:
+  version "2.7.1"
+  resolved "https://registry.yarnpkg.com/prettier/-/prettier-2.7.1.tgz#e235806850d057f97bb08368a4f7d899f7760c64"
+  integrity sha512-ujppO+MkdPqoVINuDFDRLClm7D78qbDt0/NR+wp5FqEZOoTNAjPHWj17QRhu7geIHJfcNhRk1XVQmF8Bp3ye+g==
 
 process@^0.11.10:
   version "0.11.10"
