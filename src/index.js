@@ -1,20 +1,4 @@
-import { Room, initialize } from '@telnyx/video';
-
-function appendUIResponse(response) {
-  codeBlock.innerHTML += JSON.stringify(response, null, 2);
-  codeBlock.innerHTML += '\n';
-  return response;
-}
-
-// UI
-document.querySelector('input[name=room-id]').value = process.env.TELNYX_ROOM_ID || '';
-
-const btnConnect = document.getElementById('btn-connect');
-const btnDisconnect = document.getElementById('btn-disconnect');
-const btnGenerateToken = document.getElementById('btn-generate-token');
-const codeBlock = document.querySelector('code');
-const clientTokenField = document.querySelector('textarea');
-const roomId = document.querySelector('input[name=room-id]').value;
+import { initialize } from '@telnyx/video';
 
 const VideoRoom = {
   room: null,
@@ -54,6 +38,24 @@ const VideoRoom = {
 
 window.VideoRoom = VideoRoom;
 
+
+// DOM interactions
+
+function appendUIResponse(response) {
+  codeBlock.innerHTML += JSON.stringify(response, null, 2);
+  codeBlock.innerHTML += '\n';
+  return response;
+}
+
+// UI
+document.querySelector('input[name=room-id]').value = process.env.TELNYX_ROOM_ID || '';
+
+const btnConnect = document.getElementById('btn-connect');
+const btnDisconnect = document.getElementById('btn-disconnect');
+const btnGenerateToken = document.getElementById('btn-generate-token');
+const codeBlock = document.querySelector('code');
+const clientTokenField = document.querySelector('textarea');
+const roomId = document.querySelector('input[name=room-id]').value;
 
 // Buttons
 btnGenerateToken.addEventListener('click', function () {
