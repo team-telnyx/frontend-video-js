@@ -18,10 +18,7 @@ const VideoRoom = {
   },
   connect: async function ({ roomId, clientToken, ...rest }) {
     VideoRoom.room = await initialize({ roomId, clientToken, ...rest });
-
     VideoRoom.room.on('state_changed', function (state) {
-      console.info(state);
-
       // render UI
       document.getElementById('status').innerHTML = state.status;
       appendUIResponse(state);
@@ -41,8 +38,20 @@ window.VideoRoom = VideoRoom;
 // DOM interactions
 
 function appendUIResponse(response) {
-  codeBlock.innerHTML += JSON.stringify(response, null, 2);
-  codeBlock.innerHTML += '\n';
+  function replacer(key, value) {
+    if (value instanceof Map) {
+      return {
+        dataType: 'Map',
+        value: Array.from(value.entries()), // or with spread: value: [...value]
+      };
+    } else {
+      return value;
+    }
+  }
+
+  console.info(response);
+  codeBlock.innerHTML += JSON.stringify(response, replacer, 2);
+  codeBlock.innerHTML += '\n----------------------------------------------------------------------------------\n';
   return response;
 }
 
@@ -52,6 +61,7 @@ document.querySelector('input[name=room-id]').value = process.env.TELNYX_ROOM_ID
 const btnConnect = document.getElementById('btn-connect');
 const btnDisconnect = document.getElementById('btn-disconnect');
 const btnGenerateToken = document.getElementById('btn-generate-token');
+const btnAddStream = document.getElementById('btn-add-stream');
 const codeBlock = document.querySelector('code');
 const clientTokenField = document.querySelector('textarea');
 const roomId = document.querySelector('input[name=room-id]').value;
@@ -74,11 +84,15 @@ btnConnect.addEventListener('click', async function () {
   VideoRoom.connect({ roomId, clientToken, context });
 });
 
-btnDisconnect.addEventListener('click', async function () {
+btnDisconnect.addEventListener('click', function () {
   VideoRoom.disconnect();
   VideoRoom.room.on('disconnected', () => {
     const state = VideoRoom.room.getState();
     appendUIResponse(state);
     document.getElementById('status').innerHTML = state.status;
   });
+});
+
+btnAddStream.addEventListener('click', async function () {
+  await VideoRoom.room.addStream('self');
 });
