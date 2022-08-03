@@ -14,7 +14,7 @@
 <body>
   <main class="container mx-auto px-4 p-4">
     <section class="grid grid-cols-2 gap-4 shadow-md bg-white rounded-md p-16">
-      <div class="w-3/5">
+      <div class="w-4/5">
 
         <!-- Room ID -->
         <div class="mb-3 w-full">
@@ -36,12 +36,15 @@
         </div>
 
         <!-- Buttons -->
-        <div class="grid grid-cols-3 gap-4">
+        <div class="grid grid-cols-2 gap-4">
           <button id="btn-connect" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
             Connect
           </button>
           <button id="btn-add-stream" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
-            Add stream
+            Add Stream
+          </button>
+          <button id="btn-join" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+            Add Participant
           </button>
           <button id="btn-disconnect" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
             Disconnect
@@ -51,7 +54,7 @@
 
       <div>
         <!-- CODE BOX -->
-        <pre class="inline-block w-full rounded-md text-[10px] h-80 overflow-scroll"><code class="language-json" /></pre>
+        <pre class="inline-block w-full rounded-md text-[10px] h-96 overflow-scroll"><code class="language-json" /></pre>
         <p class="text-[12px] text-zinc-600 italic border-b-2 pb-2">Status: <span id="status">disconnected</span></p>
       </div>
 

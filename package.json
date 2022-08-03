@@ -4,13 +4,15 @@
   "license": "MIT",
   "source": "src/index.html",
   "scripts": {
-    "start": "parcel",
-    "build": "parcel build"
+    "start": "parcel src/*.html",
+    "build": "parcel build src/*.html"
   },
   "dependencies": {
-    "@telnyx/video": "^0.2.0-alpha.23"
+    "@telnyx/video": "^0.2.0-alpha.23",
+    "uuid": "^8.3.2"
   },
   "devDependencies": {
+    "@faker-js/faker": "^7.3.0",
     "parcel": "^2.6.2",
     "postcss": "^8.4.14",
     "prettier": "^2.7.1",

@@ -1,6 +1,8 @@
+import { v4 as uuidv4 } from 'uuid';
+import { faker } from '@faker-js/faker';
 import { initialize } from '@telnyx/video';
 
-const VideoRoom = {
+export const VideoRoom = {
   room: null,
   clientToken: null,
   generateToken: async function () {
@@ -37,7 +39,7 @@ window.VideoRoom = VideoRoom;
 
 // DOM interactions
 
-function appendUIResponse(response) {
+export function appendUIResponse(response) {
   function replacer(key, value) {
     if (value instanceof Map) {
       return {
@@ -50,6 +52,7 @@ function appendUIResponse(response) {
   }
 
   console.info(response);
+  const codeBlock = document.querySelector('code');
   codeBlock.innerHTML += JSON.stringify(response, replacer, 2);
   codeBlock.innerHTML += '\n----------------------------------------------------------------------------------\n';
   return response;
@@ -59,10 +62,10 @@ function appendUIResponse(response) {
 document.querySelector('input[name=room-id]').value = process.env.TELNYX_ROOM_ID || '';
 
 const btnConnect = document.getElementById('btn-connect');
+const btnJoin = document.getElementById('btn-join');
 const btnDisconnect = document.getElementById('btn-disconnect');
 const btnGenerateToken = document.getElementById('btn-generate-token');
 const btnAddStream = document.getElementById('btn-add-stream');
-const codeBlock = document.querySelector('code');
 const clientTokenField = document.querySelector('textarea');
 const roomId = document.querySelector('input[name=room-id]').value;
 
@@ -75,12 +78,25 @@ btnGenerateToken.addEventListener('click', function () {
 
 btnConnect.addEventListener('click', async function () {
   const clientToken = VideoRoom.clientToken;
-  const context = JSON.stringify({ name: 'Bob The Builder', id: 1 });
+  const context = JSON.stringify({
+    name: faker.name.findName(),
+    id: uuidv4(),
+  });
 
   if (!clientToken || !roomId) {
     return alert('You need a client Token and a Room ID to be able to connect');
   }
 
+  VideoRoom.connect({ roomId, clientToken, context });
+});
+
+btnJoin.addEventListener('click', async function () {
+  const clientToken = VideoRoom.clientToken;
+  if (!clientToken || !roomId) {
+    return alert('You need a client Token and a Room ID to be able to connect');
+  }
+
+  window.open(`/join.html?clientToken=${clientToken}&roomId=${roomId}`);
   VideoRoom.connect({ roomId, clientToken, context });
 });
 
